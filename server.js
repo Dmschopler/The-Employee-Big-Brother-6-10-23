@@ -1,11 +1,4 @@
-const express = require('express');
 const mysql = require('mysql2');
-
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 const db = mysql.createConnection(
   {
@@ -14,9 +7,12 @@ const db = mysql.createConnection(
     password: 'password',
     database: 'employee_db'
   },
-  console.log(`Connected to the courses_db database.`)
+  console.log(`Connected to the employee_db database.`)
 );
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+db.connect((err) => {
+  if (err) throw err;
+  console.log("Database connected")
+});
+
+module.exports = db; 
