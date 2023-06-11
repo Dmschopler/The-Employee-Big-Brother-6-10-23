@@ -16,3 +16,7 @@ const db = mysql.createConnection(
   },
   console.log(`Connected to the courses_db database.`)
 );
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
