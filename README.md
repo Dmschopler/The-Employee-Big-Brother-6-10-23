@@ -10,4 +10,6 @@ This application helps the user go through the companies staff directory and hel
 
 ## Demo
 Below is a quick video to show how the application works!
-<iframe src="https://drive.google.com/file/d/1h07wMYJKdy3lnrm3zS2JxSnYwTDl6aks/preview" width="640" height="480"></iframe>
+
+https://github.com/Dmschopler/The-Employee-Big-Brother-6-10-23/assets/127625518/720ac68a-c6e0-4721-8c73-91a7943e8257
+
