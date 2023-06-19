@@ -10,3 +10,4 @@ This application helps the user go through the companies staff directory and hel
 
 ## Demo
 Below is a quick video to show how the application works!
+<iframe src="https://drive.google.com/file/d/1h07wMYJKdy3lnrm3zS2JxSnYwTDl6aks/preview" width="640" height="480"></iframe>
