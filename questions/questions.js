@@ -202,7 +202,7 @@ const addRole = () => {
     .then((answer) => {
         const addedRole = answer.addedRole;
         const roleSalary = answer.roleSalary;
-        db.query('SELECT * FROM deparment', (err, res) => {
+        db.query('SELECT * FROM department', (err, res) => {
             if (err) throw err;
             inquirer
             .prompt([
