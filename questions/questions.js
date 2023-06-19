@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const db = require('../server');
+const db = require('../connection/connection');
+const consoleTables = require('console.table')
 
 function start() {
     inquirer
@@ -47,9 +48,10 @@ function start() {
 
 const viewStaff = () => {
     db.query(
-        'SELECT employee.id, employee.first_name, employee.last_name, role.title, department.department_name, AS department, role.salary, CONCAT(manager.first_name, " ", manager.last_name) AS manager FROM employee e INNER JOIN roles r ON employee.role_id = role.id INNER JOIN departments d on role.departments_id = department.id LEFT JOIN employee ON employee.manager_id = manager.id',
+        'SELECT employee.id, employee.first_name, employee.last_name, role.title, department.department_name AS department, role.salary, CONCAT(manager.first_name, " ", manager.last_name) AS manager FROM employee INNER JOIN role ON employee.role_id = role.id INNER JOIN department on role.department_id = department.id',
         (err, res) => {
             if (err) throw err;
+            console.table(res);
             start();
         }
     );
@@ -175,8 +177,9 @@ const updateStaff = () => {
 };
 
 const viewAllRoles = () => {
-    db.query('SELECT role.id, role.title, role.salary department.department_name AS department FROM role JOIN department ON role.department_id = department.id',
+    db.query('SELECT role.id, role.title, role.salary, department.department_name AS department FROM role JOIN department ON role.department_id = department.id',
     (err, res) => {
+        console.table(res);
         start();
       }
     );
@@ -232,6 +235,7 @@ const addRole = () => {
 const viewAllDepartments = () => {
     db.query('SELECT * FROM department', (err, res) => {
         if (err) throw err;
+        console.table(res);
         start();
     });
 };
@@ -266,3 +270,4 @@ const quit = () => {
 };
 
 module.exports = start;
+
